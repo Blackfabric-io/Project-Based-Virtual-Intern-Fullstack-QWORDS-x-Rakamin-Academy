@@ -1,0 +1,65 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+/.env
+# Laravel Mix
+/webpack.mix.js
+/mix-manifest.json
+
+# Vagrant
+/.vagrant
+
+# NPM
+package-lock.json
+yarn.lock
+
+# Composer
+composer.lock
+
+# IDEs and Editors
+/.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs and Temp Files
+yarn-debug.log*
+/storage/logs/*
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# PHPUnit
+phpunit.xml
+
+# Miscellaneous
+/.phpstorm.meta.php
+/.symfony
+
+# Ignore Laravel Telescope files
+/telescope/*.sqlite
