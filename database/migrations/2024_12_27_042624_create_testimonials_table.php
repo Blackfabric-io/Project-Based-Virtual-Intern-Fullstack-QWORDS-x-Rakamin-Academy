@@ -16,8 +16,9 @@ class CreateTestimonialsTable extends Migration
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->string('customer_name');
-            $table->string('designation')->nullable();
+            $table->string('role')->nullable();
             $table->text('testimonial');
+            $table->foreignId('partner_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }

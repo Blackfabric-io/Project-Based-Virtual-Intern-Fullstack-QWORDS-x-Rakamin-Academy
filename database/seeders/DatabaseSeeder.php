@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PricingSeeder::class,
-            // add other seeders here
+            // other seeders
         ]);
     }
 }
