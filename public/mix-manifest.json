@@ -1,6 +1,24 @@
 {
     "/js/app.js": "/js/app.js?id=543ce524593773bb09abc8ebd2c57864",
-    "/css/app.css": "/css/app.css?id=611112ad4aad4b6dd9f9dc582888fded",
+    "/css/app.css": "/css/app.css?id=5f832d5e97bbe8ed7770f9e0413e579d",
+    "/images/background-service.png": "/images/background-service.png?id=f95337e2e2dfc8c5ec287263f2544143",
+    "/images/partners/cimory-logo.png": "/images/partners/cimory-logo.png?id=58ec21395332d98214295f0334eb4791",
+    "/images/partners/forisa-logo.png": "/images/partners/forisa-logo.png?id=1a042073d919d200b2427e00892a50f1",
+    "/images/partners/horison-logo.png": "/images/partners/horison-logo.png?id=e7ce3e63f353ebb5de761668fcde9d06",
+    "/images/partners/icon-plus-logo.png": "/images/partners/icon-plus-logo.png?id=ca111f0b5df9fa7b61665bb0cc3464b1",
+    "/images/partners/md-pictures-logo.png": "/images/partners/md-pictures-logo.png?id=50a05758845bb3570e082ecc17d4998a",
+    "/images/partners/oelshe-skin-logo.png": "/images/partners/oelshe-skin-logo.png?id=9549bed2b5e56cf43c544394841c3ed0",
+    "/images/partners/smbc-logo.png": "/images/partners/smbc-logo.png?id=51becf3befd3368e1df352ddf8a67227",
+    "/images/payment/bca.png": "/images/payment/bca.png?id=92e27a5abafc9d6a65ead7515fb9f8ba",
+    "/images/payment/bni.png": "/images/payment/bni.png?id=c4b42767232f53da7391f51750e577b4",
+    "/images/payment/bsi.png": "/images/payment/bsi.png?id=5c103af08c0bfbfcb1b3d541070b7f7b",
+    "/images/payment/dana.png": "/images/payment/dana.png?id=5cb8b5f1e175dd102902500e0ef5a9e7",
+    "/images/payment/mandiri.png": "/images/payment/mandiri.png?id=eed1a0c65e9d9bda797e00d2ff861954",
+    "/images/payment/ovo.png": "/images/payment/ovo.png?id=ebdc14ea2f664a4b98969ff823e14f83",
+    "/images/testimonials/budi-raharjo.jpg": "/images/testimonials/budi-raharjo.jpg?id=d1d95f81402d53ed081089b65f985a04",
+    "/images/testimonials/denden-sofiudin.jpg": "/images/testimonials/denden-sofiudin.jpg?id=8d153f6b8caab14aa8a61f6b25c4ccb5",
+    "/images/testimonials/kuns-kurniawan.jpg": "/images/testimonials/kuns-kurniawan.jpg?id=b23c10720e64411ae51dbe75f736aac9",
     "/css/bootstrap.min.css": "/css/bootstrap.min.css?id=a549af2a81cd9900ee897d8bc9c4b5e9",
-    "/js/bootstrap.bundle.min.js": "/js/bootstrap.bundle.min.js?id=2e477967e482f32e65d4ea9b2fd8e106"
+    "/js/bootstrap.bundle.min.js": "/js/bootstrap.bundle.min.js?id=2e477967e482f32e65d4ea9b2fd8e106",
+    "/images/background-hero.png": "/images/background-hero.png?id=90a8a3713419eba4bcb6082d018629d5"
 }

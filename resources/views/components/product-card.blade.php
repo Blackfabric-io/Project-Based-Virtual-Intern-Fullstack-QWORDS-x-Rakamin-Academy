@@ -10,42 +10,44 @@
     @endif
 
     <div class="p-6 flex-1 flex flex-col">
-        <div class="mb-6">
+        <div class="pt-4 mb-6">
             <h3 class="text-xl font-bold text-gray-900 mb-2">
                 {{ $product->name }}
             </h3>
 
-            <p class="text-gray-600 mb-4">
+            <p class="text-gray-600">
                 {{ $product->description }}
             </p>
         </div>
 
-        <div class="mb-6">
-            @if($product->discount_price)
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="text-lg font-bold text-gray-900">
+        <div class="mb-8">
+            <div class="flex flex-col items-start">
+                @if($product->discount_price)
+                    <div class="text-2xl font-bold text-gray-900 mb-1">
                         {{ $product->formatted_discount_price }}
-                    </span>
-                    <span class="text-sm line-through text-gray-500">
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm line-through text-gray-500">
+                            {{ $product->formatted_price }}
+                        </span>
+                        <span class="text-sm font-semibold text-green-600">
+                            Save {{ $product->discount_percentage }}%
+                        </span>
+                    </div>
+                @else
+                    <div class="text-2xl font-bold text-gray-900 mb-1">
                         {{ $product->formatted_price }}
-                    </span>
-                    <span class="text-sm font-semibold text-green-600">
-                        Save {{ $product->discount_percentage }}%
-                    </span>
-                </div>
-            @else
-                <div class="text-lg font-bold text-gray-900 mb-1">
-                    {{ $product->formatted_price }}
-                </div>
-            @endif
-            <div class="text-sm text-gray-600">/month</div>
+                    </div>
+                @endif
+                <div class="text-sm text-gray-600 mt-1">/month</div>
+            </div>
         </div>
 
         <div class="flex-1">
-            <ul class="space-y-2 mb-6">
+            <ul class="space-y-3 mb-8">
                 @foreach($product->features as $feature)
                     <li class="flex items-start text-sm text-gray-600">
-                        <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                         <span>{{ $feature }}</span>

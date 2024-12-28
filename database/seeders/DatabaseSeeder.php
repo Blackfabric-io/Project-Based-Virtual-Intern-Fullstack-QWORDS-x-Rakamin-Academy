@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             PartnerSeeder::class,
             PaymentMethodSeeder::class,
             FAQSeeder::class,
+            ServiceSeeder::class,
         ]);
     }
 }

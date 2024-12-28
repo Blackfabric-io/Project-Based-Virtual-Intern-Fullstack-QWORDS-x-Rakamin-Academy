@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 
 class Partner extends Model
 {
@@ -15,29 +14,17 @@ class Partner extends Model
         'logo',
         'website_url',
         'description',
-        'is_active',
-        'order'
+        'order',
+        'is_active'
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'order' => 'integer'
     ];
 
-    public function scopeActive(Builder $query): Builder
+    public function scopeActive($query)
     {
-        return $query->where('is_active', true);
-    }
-
-    public function scopeOrdered(Builder $query): Builder
-    {
-        return $query->orderBy('order');
-    }
-
-    /**
-     * Get the testimonials for this partner.
-     */
-    public function testimonials()
-    {
-        return $this->hasMany(Testimonial::class);
+        return $query->where('is_active', true)->orderBy('order');
     }
 }

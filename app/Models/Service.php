@@ -3,25 +3,29 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class FAQ extends Model
+class Service extends Model
 {
-    use HasFactory;
-
-    protected $table = 'faqs';
-
     protected $fillable = [
-        'question',
-        'answer',
+        'name',
+        'slug',
+        'description',
+        'price',
+        'billing_cycle',
+        'icon',
+        'is_active',
         'order',
-        'is_active'
     ];
 
     protected $casts = [
+        'price' => 'decimal:2',
         'is_active' => 'boolean',
-        'order' => 'integer'
     ];
+
+    public function getFormattedPriceAttribute(): string
+    {
+        return 'Rp ' . number_format($this->price, 0, ',', '.');
+    }
 
     public function scopeActive($query)
     {

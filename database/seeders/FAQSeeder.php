@@ -13,33 +13,33 @@ class FAQSeeder extends Seeder
             [
                 'question' => 'Apa itu web hosting?',
                 'answer' => 'Web hosting adalah layanan penyimpanan data website seperti teks, video dan gambar website. File dan data tersebut di simpan di dalam server yang terkoneksi dengan internet sehingga dapat diakses kapanpun dan dimanapun.',
-                'display_order' => 1,
-                'is_active' => true
-            ],
-            [
-                'question' => 'Mengapa saya perlu web hosting?',
-                'answer' => 'Web hosting diperlukan jika Anda ingin membuat website yang dapat diakses secara online. Hosting menyimpan semua file dan data website Anda di server yang terhubung dengan internet.',
-                'display_order' => 2,
-                'is_active' => true
+                'order' => 1,
+                'is_active' => true,
             ],
             [
                 'question' => 'Apa kelebihan dari cloud hosting Qwords?',
-                'answer' => 'Cloud hosting Qwords menggunakan teknologi cloud computing terkini, menjamin uptime 99.9%, dilengkapi dengan fitur keamanan canggih, backup otomatis, dan dukungan teknis 24/7.',
-                'display_order' => 3,
-                'is_active' => true
+                'answer' => 'Cloud hosting Qwords menggunakan teknologi cloud computing dengan sistem yang terdistribusi, sehingga lebih stabil dan aman. Hosting ini juga dilengkapi dengan fitur auto-backup dan disaster recovery.',
+                'order' => 2,
+                'is_active' => true,
             ],
             [
-                'question' => 'Apakah saya bisa transfer hosting dari provider lain?',
-                'answer' => 'Ya, Anda dapat melakukan transfer hosting dari provider lain ke Qwords. Tim technical support kami akan membantu proses migrasi secara gratis.',
-                'display_order' => 4,
-                'is_active' => true
+                'question' => 'Bagaimana cara membeli hosting di Qwords?',
+                'answer' => 'Anda dapat memilih paket hosting yang sesuai, melakukan pendaftaran, memilih metode pembayaran, dan melakukan pembayaran. Setelah pembayaran dikonfirmasi, layanan hosting akan segera diaktifkan.',
+                'order' => 3,
+                'is_active' => true,
             ],
             [
-                'question' => 'Bagaimana jika saya mengalami masalah teknis?',
-                'answer' => 'Qwords menyediakan layanan customer support 24/7 melalui live chat, telepon, dan ticket support. Tim technical support kami siap membantu menyelesaikan masalah teknis yang Anda hadapi.',
-                'display_order' => 5,
-                'is_active' => true
-            ]
+                'question' => 'Apakah ada garansi untuk layanan cloud hosting?',
+                'answer' => 'Ya, Qwords memberikan garansi uptime server 99.99%. Jika terjadi downtime melebihi batas tersebut, kami akan memberikan kompensasi sesuai dengan ketentuan yang berlaku.',
+                'order' => 4,
+                'is_active' => true,
+            ],
+            [
+                'question' => 'Bagaimana dengan dukungan pelanggan?',
+                'answer' => 'Tim Technical Support dan Customer Service kami aktif 24/7, siap membantu Anda melalui live chat, telepon, email, dan support ticket.',
+                'order' => 5,
+                'is_active' => true,
+            ],
         ];
 
         foreach ($faqs as $faq) {
