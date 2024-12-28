@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PageManagementController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\PageManagementController;
 
 // Public Routes
 Route::get('/', [LandingPageController::class, 'index'])->name('home');
+Route::get('/signup', [RegisterController::class, 'showRegistrationForm'])->name('signup');
 
 // Dynamic Page Routes
 Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
@@ -38,7 +40,7 @@ Route::prefix('services')->group(function () {
 // Contact Routes
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('contact.index');
-    Route::post('/submit', [ContactController::class, 'submit'])->name('contact.submit');
+    Route::post('/', [ContactController::class, 'store'])->name('contact.store');
 });
 
 // Admin Routes

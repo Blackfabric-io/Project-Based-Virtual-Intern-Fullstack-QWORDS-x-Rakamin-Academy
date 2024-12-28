@@ -1,4 +1,5 @@
-<div class="border-b">
+<!-- FAQ Accordion Component -->
+<div class="border-b faq-accordion">
     <button class="w-full text-left py-4 focus:outline-none">
         <span class="font-semibold">{{ $faq->question }}</span>
         <span class="float-right">+</span>
@@ -7,13 +8,3 @@
         <p class="text-gray-700">{{ $faq->answer }}</p>
     </div>
 </div>
-
-<script>
-    document.querySelectorAll('.faq-accordion button').forEach(button => {
-        button.addEventListener('click', () => {
-            const content = button.nextElementSibling;
-            content.classList.toggle('hidden');
-            button.querySelector('span.float-right').textContent = content.classList.contains('hidden') ? '+' : '-';
-        });
-    });
-</script>

@@ -65,6 +65,9 @@
     <!-- Asset Loading (CSS) -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    <!-- JavaScript -->
+    <script src="{{ asset('js/accordion.js') }}" defer></script>
+
     @stack('styles')
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
