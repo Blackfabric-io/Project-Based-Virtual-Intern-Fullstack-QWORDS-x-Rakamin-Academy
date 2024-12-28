@@ -3,39 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    /**
-     * Show the contact form.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showForm()
+    public function index()
     {
-        return view('contact.form');
+        return view('contact.index');
     }
 
-    /**
-     * Handle the contact form submission.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function submitForm(Request $request)
+    public function submit(Request $request)
     {
-        // Validate the incoming request data
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => 'required|email|max:255',
             'message' => 'required|string',
         ]);
 
-        // Store the contact inquiry
-        Contact::create($validated);
+        // Handle the contact form submission here
+        // You can add email notification or database storage logic
 
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+        return redirect()->back()->with('success', 'Thank you for your message. We will contact you soon!');
     }
 }
