@@ -10,7 +10,12 @@ class Feature extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_id', 'name', 'description'];
+    protected $fillable = [
+        'product_id',
+        'name',
+        'description',
+        'display_order'
+    ];
 
     /**
      * Get the product that owns the feature.
@@ -18,5 +23,13 @@ class Feature extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    /**
+     * Scope a query to order features by display order.
+     */
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('display_order');
     }
 }

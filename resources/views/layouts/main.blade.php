@@ -13,24 +13,6 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{{ config('app.name', 'QWords') }}">
-    <meta property="og:title" content="@yield('title', config('app.name', 'QWords Landing Page')) | Cloud Hosting Indonesia">
-    <meta property="og:description" content="@yield('meta_description', 'QWords provides top-notch cloud hosting solutions with 24/7 support.')">
-    <meta property="og:image" content="@yield('og_image', asset('images/og-image.jpg'))">
-    <meta property="og:url" content="{{ url()->current() }}">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@QWordsHosting">
-    <meta name="twitter:title" content="@yield('title', config('app.name', 'QWords Landing Page'))">
-    <meta name="twitter:description" content="@yield('meta_description', 'QWords provides top-notch cloud hosting solutions with 24/7 support.')">
-    <meta name="twitter:image" content="@yield('twitter_image', asset('images/twitter-card.jpg'))">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ url()->current() }}">
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
@@ -38,57 +20,38 @@
     <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Structured Data / JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "{{ config('app.name', 'QWords') }}",
-        "url": "{{ url('/') }}",
-        "logo": "{{ asset('images/logo.png') }}",
-        "sameAs": [
-            "https://facebook.com/qwords",
-            "https://twitter.com/qwords",
-            "https://instagram.com/qwords"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+62-804-1-808-888",
-            "contactType": "customer service",
-            "availableLanguage": ["English", "Indonesian"]
-        }
-    }
-    </script>
+    <!-- Styles -->
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-    <!-- Asset Loading (CSS) -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-    <!-- JavaScript -->
-    <script src="{{ asset('js/accordion.js') }}" defer></script>
-
+    <!-- Additional Styles -->
     @stack('styles')
 </head>
-<body itemscope itemtype="https://schema.org/WebPage">
-    <!-- Header/Navbar -->
+<body class="font-primary text-text-primary antialiased">
+    <!-- Header -->
     <header>
         @include('components.navbar')
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4">
+    <main>
         <!-- Breadcrumbs for SEO -->
-        @yield('breadcrumbs')
+        @hasSection('breadcrumbs')
+            <div class="container mx-auto px-4">
+                @yield('breadcrumbs')
+            </div>
+        @endif
+
+        <!-- Page Heading -->
+        @hasSection('page_heading')
+            <div class="container mx-auto px-4">
+                <h1 class="text-section font-secondary font-bold">@yield('page_heading')</h1>
+            </div>
+        @endif
 
         <!-- Main Content Area -->
-        <article>
-            @hasSection('page_heading')
-                <h1 class="main-heading">@yield('page_heading')</h1>
-            @endif
-
-            @yield('content')
-        </article>
+        @yield('content')
     </main>
 
     <!-- Footer -->
@@ -96,35 +59,11 @@
         @include('components.footer')
     </footer>
 
-    <!-- Essential Scripts -->
-    @if(config('app.env') === 'local')
-        <script src="{{ asset('js/app.js') }}"></script>
-    @else
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    @endif
-
-    <!-- Feature Scripts -->
-    <script src="{{ asset('js/smooth-scroll.js') }}" defer></script>
-    <script src="{{ asset('js/form-validation.js') }}" defer></script>
-    <script src="{{ asset('js/pricing-calculator.js') }}" defer></script>
-    <script src="{{ asset('js/mobile-menu-toggle.js') }}" defer></script>
-    <script src="{{ asset('js/lazy-loading.js') }}" defer></script>
-
-    <!-- Asset Loading (JS) -->
+    <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
-
-    <!-- Google Analytics or Tag Manager -->
-    @if(config('app.env') === 'production')
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'YOUR-GA-ID');
-        </script>
-    @endif
-
     @stack('scripts')
+
+    <!-- Alpine.js -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 </html>

@@ -1,87 +1,76 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto px-4 py-12">
-        <div class="max-w-4xl mx-auto">
-            @if($product === 'cloud-hosting')
-                <h1 class="text-4xl font-bold mb-8">Cloud Hosting</h1>
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold mb-4">Features</h2>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <div>
-                                <strong>High Performance SSD Storage</strong>
-                                <p class="text-gray-600">Lightning-fast storage for your applications</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <div>
-                                <strong>Unlimited Bandwidth</strong>
-                                <p class="text-gray-600">No traffic limitations for your website</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <div>
-                                <strong>24/7 Technical Support</strong>
-                                <p class="text-gray-600">Expert assistance whenever you need it</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="pricing-section">
-                    <h2 class="text-2xl font-semibold mb-4">Price</h2>
-                    <div class="bg-white border rounded-lg p-6">
-                        <div class="text-3xl font-bold mb-2">Rp 99.000<span class="text-lg font-normal">/month</span></div>
-                        <p class="text-gray-600 mb-4">Starting from</p>
-                        <button class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-                            Get Started
-                        </button>
-                    </div>
-                </div>
-            @else
-                <h1 class="text-4xl font-bold mb-8">VPS</h1>
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold mb-4">Features</h2>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <div>
-                                <strong>Full Root Access</strong>
-                                <p class="text-gray-600">Complete control over your server</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <div>
-                                <strong>Guaranteed Resources</strong>
-                                <p class="text-gray-600">Dedicated CPU and RAM allocation</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <div>
-                                <strong>Custom Configuration</strong>
-                                <p class="text-gray-600">Flexibility to configure your server</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="pricing-section">
-                    <h2 class="text-2xl font-semibold mb-4">Price</h2>
-                    <div class="bg-white border rounded-lg p-6">
-                        <div class="text-3xl font-bold mb-2">Rp 199.000<span class="text-lg font-normal">/month</span></div>
-                        <p class="text-gray-600 mb-4">Starting from</p>
-                        <button class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-                            Get Started
-                        </button>
-                    </div>
-                </div>
-            @endif
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Product Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-text-primary mb-4">{{ $product->name }}</h1>
+            <p class="text-text-secondary text-lg">{{ $product->description }}</p>
         </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            @foreach($product->features as $feature)
+                <div class="flex items-start">
+                    <span class="text-accent-green mr-2">✓</span>
+                    <div>
+                        <h3 class="font-semibold text-text-primary mb-1">{{ $feature->name }}</h3>
+                        <p class="text-text-secondary">{{ $feature->description }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <!-- Pricing and CTA -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Pricing Card -->
+            <div class="bg-base-white border border-text-tertiary rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-text-primary mb-4">Pricing</h2>
+                <div class="mb-6">
+                    <p class="text-text-secondary mb-4">Starting from</p>
+                    <div class="text-3xl font-bold text-brand">
+                        Rp {{ number_format($product->price, 0, ',', '.') }}
+                        <span class="text-lg font-normal text-text-tertiary">/mo</span>
+                    </div>
+                </div>
+                <button class="w-full bg-brand text-base-white px-6 py-3 rounded-lg hover:bg-brand-light transition-colors">
+                    Choose Plan
+                </button>
+            </div>
+
+            <!-- Contact Sales -->
+            <div class="bg-base-offwhite rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-text-primary mb-4">Need Help?</h2>
+                <p class="text-text-secondary mb-4">Our team is ready to assist you in choosing the right plan for your needs.</p>
+                <button
+                    class="w-full border-2 border-brand text-brand px-6 py-3 rounded-lg hover:bg-brand hover:text-base-white transition-colors">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        @if($relatedProducts->count() > 0)
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold text-text-primary mb-8">Related Products</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    @foreach($relatedProducts as $relatedProduct)
+                        <div class="bg-base-white border border-text-tertiary rounded-lg p-4">
+                            <h3 class="font-semibold text-text-primary mb-2">{{ $relatedProduct->name }}</h3>
+                            <p class="text-text-secondary text-sm mb-3">{{ $relatedProduct->description }}</p>
+                            <div class="text-brand font-bold mb-3">
+                                Rp {{ number_format($relatedProduct->price, 0, ',', '.') }}/mo
+                            </div>
+                            <a href="{{ route('products.show', $relatedProduct->id) }}"
+                               class="text-brand hover:text-brand-light transition-colors text-sm">
+                                Learn More →
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
     </div>
+</div>
 @endsection

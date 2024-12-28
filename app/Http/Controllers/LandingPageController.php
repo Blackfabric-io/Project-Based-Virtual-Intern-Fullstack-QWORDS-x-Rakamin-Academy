@@ -2,44 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Page;
+use App\Models\FAQ;
+use App\Models\Partner;
+use App\Models\Product;
+use App\Models\Testimonial;
+use App\Models\PaymentMethod;
+use Illuminate\View\View;
 
 class LandingPageController extends Controller
 {
-    /**
-     * Display the main landing page.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function index(): View
     {
-        // Retrieve all sections for the landing page
-        $sections = Page::all();
-
-        return view('landing_page.index', compact('sections'));
-    }
-
-    /**
-     * Load dynamic content for a specific section.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function getSectionContent($id)
-    {
-        $section = Page::find($id);
-
-        if ($section) {
-            return response()->json([
-                'status' => 'success',
-                'data' => $section
-            ]);
-        }
-
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Section not found.'
-        ], 404);
+        return view('landing_page.index', [
+            'products' => Product::featured()->take(3)->get(),
+            'testimonials' => Testimonial::featured()->take(3)->get(),
+            'faqs' => FAQ::active()->ordered()->get(),
+            'partners' => Partner::active()->ordered()->get(),
+            'paymentMethods' => PaymentMethod::active()->ordered()->get(),
+        ]);
     }
 }

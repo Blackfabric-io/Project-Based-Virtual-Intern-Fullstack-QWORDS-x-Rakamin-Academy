@@ -1,25 +1,50 @@
-<section class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold text-center mb-12">Our Products</h2>
-        <div class="flex flex-wrap -mx-4">
-            @foreach($products as $product)
-                <div class="w-full md:w-1/3 px-4 mb-8">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">{{ $product->name }}</h3>
-                            <p class="text-gray-600 mb-4">{{ $product->description }}</p>
-                            <div class="mb-4">
-                                <span class="text-2xl font-bold text-blue-600">${{ number_format($product->price, 2) }}</span>
-                            </div>
-                            <a href="{{ route('products.show', $product->id) }}"
-                               class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
-                                Learn More
-                            </a>
-                        </div>
-                    </div>
+@props(['product'])
+
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">
+            {{ $product->name }}
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            {{ $product->description }}
+        </p>
+
+        <div class="mb-6">
+            @if($product->discount_price)
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-lg font-bold text-gray-900">
+                        {{ $product->formatted_discount_price }}
+                    </span>
+                    <span class="text-sm line-through text-gray-500">
+                        {{ $product->formatted_price }}
+                    </span>
+                    <span class="text-sm font-semibold text-green-600">
+                        Save {{ $product->discount_percentage }}%
+                    </span>
                 </div>
-            @endforeach
+            @else
+                <div class="text-lg font-bold text-gray-900 mb-1">
+                    {{ $product->formatted_price }}
+                </div>
+            @endif
+            <div class="text-sm text-gray-600">/month</div>
         </div>
+
+        <ul class="space-y-2 mb-6">
+            @foreach($product->features as $feature)
+                <li class="flex items-center text-sm text-gray-600">
+                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {{ $feature }}
+                </li>
+            @endforeach
+        </ul>
+
+        <a href="{{ route('products.show', $product->slug) }}"
+           class="block w-full text-center bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+            Pilih Paket
+        </a>
     </div>
-</section>
+</div>

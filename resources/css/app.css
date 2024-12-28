@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Styles */
+@layer base {
+    /* Font Settings */
+    html {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+@layer components {
+    /* Brand Gradient */
+    .bg-brand-gradient {
+        @apply bg-gradient-to-r from-brand to-brand-light;
+    }
+
+    /* Button Styles */
+    .btn-primary {
+        @apply bg-brand-gradient text-base-white px-6 py-3 rounded-lg font-semibold
+               hover:opacity-90 transition-opacity;
+    }
+
+    .btn-secondary {
+        @apply bg-base-white text-brand border border-brand px-6 py-3 rounded-lg font-semibold
+               hover:bg-brand hover:text-base-white transition-colors;
+    }
+
+    /* Card Styles */
+    .card {
+        @apply bg-base-white rounded-lg shadow-md overflow-hidden;
+    }
+
+    .card-hover {
+        @apply transition-transform hover:scale-105;
+    }
+
+    /* Input Styles */
+    .form-input {
+        @apply w-full px-4 py-3 rounded-lg border border-gray-200
+               focus:border-brand focus:ring-1 focus:ring-brand
+               text-text-primary placeholder-text-tertiary;
+    }
+}
+
+@layer utilities {
+    /* Custom Animation */
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+}

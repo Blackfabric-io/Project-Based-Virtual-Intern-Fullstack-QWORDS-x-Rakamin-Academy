@@ -3,28 +3,21 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class FAQAccordion extends Component
 {
-    public $faq;
+    public Collection|EloquentCollection $faqs;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct($faq)
+    public function __construct($faqs)
     {
-        $this->faq = $faq;
+        $this->faqs = $faqs;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
+    public function render(): View
     {
-        return view('components.faq-accordion');
+        return view('components.f-a-q-accordion');
     }
 }
