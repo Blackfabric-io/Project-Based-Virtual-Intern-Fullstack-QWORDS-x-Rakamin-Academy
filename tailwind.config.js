@@ -10,8 +10,24 @@ module.exports = {
     ],
     theme: {
         extend: {
+            colors: {
+                primary: '#1e40af',
+                secondary: '#1c2541',
+            },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+            },
+            fontSize: {
+                'base': '1rem',
+                'lg': '1.125rem',
+            },
+            screens: {
+                'xs': '480px',
+                'sm': '576px',
+                'md': '768px',
+                'lg': '992px',
+                'xl': '1200px',
+                '2xl': '1400px',
             },
         },
     },

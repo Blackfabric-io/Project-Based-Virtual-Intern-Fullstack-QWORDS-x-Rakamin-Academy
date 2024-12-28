@@ -37,6 +37,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
     {
@@ -89,6 +92,20 @@
     <footer>
         @include('components.footer')
     </footer>
+
+    <!-- Essential Scripts -->
+    @if(config('app.env') === 'local')
+        <script src="{{ asset('js/app.js') }}"></script>
+    @else
+        <script src="{{ mix('js/app.js') }}" defer></script>
+    @endif
+
+    <!-- Feature Scripts -->
+    <script src="{{ asset('js/smooth-scroll.js') }}" defer></script>
+    <script src="{{ asset('js/form-validation.js') }}" defer></script>
+    <script src="{{ asset('js/pricing-calculator.js') }}" defer></script>
+    <script src="{{ asset('js/mobile-menu-toggle.js') }}" defer></script>
+    <script src="{{ asset('js/lazy-loading.js') }}" defer></script>
 
     <!-- Asset Loading (JS) -->
     <script src="{{ mix('js/app.js') }}" defer></script>
