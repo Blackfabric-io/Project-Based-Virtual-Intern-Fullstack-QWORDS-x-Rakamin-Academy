@@ -14,7 +14,7 @@ class LandingPageController extends Controller
     public function index(): View
     {
         return view('landing_page.index', [
-            'products' => Product::featured()->take(3)->get(),
+            'products' => Product::orderBy('order')->get(),
             'testimonials' => Testimonial::featured()->take(3)->get(),
             'faqs' => FAQ::active()->ordered()->get(),
             'partners' => Partner::active()->ordered()->get(),

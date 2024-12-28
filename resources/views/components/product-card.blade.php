@@ -1,14 +1,24 @@
-@props(['product'])
+@props(['product', 'index'])
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
-    <div class="p-6">
-        <h3 class="text-xl font-bold text-gray-900 mb-2">
-            {{ $product->name }}
-        </h3>
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 h-full flex flex-col relative">
+    @if($index === 1)
+        <div class="absolute top-0 right-0">
+            <div class="bg-brand text-white px-4 py-1 rounded-bl-lg font-medium text-sm">
+                Popular Choice
+            </div>
+        </div>
+    @endif
 
-        <p class="text-gray-600 mb-4">
-            {{ $product->description }}
-        </p>
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="mb-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                {{ $product->name }}
+            </h3>
+
+            <p class="text-gray-600 mb-4">
+                {{ $product->description }}
+            </p>
+        </div>
 
         <div class="mb-6">
             @if($product->discount_price)
@@ -31,20 +41,24 @@
             <div class="text-sm text-gray-600">/month</div>
         </div>
 
-        <ul class="space-y-2 mb-6">
-            @foreach($product->features as $feature)
-                <li class="flex items-center text-sm text-gray-600">
-                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    {{ $feature }}
-                </li>
-            @endforeach
-        </ul>
+        <div class="flex-1">
+            <ul class="space-y-2 mb-6">
+                @foreach($product->features as $feature)
+                    <li class="flex items-start text-sm text-gray-600">
+                        <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>{{ $feature }}</span>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
 
-        <a href="{{ route('products.show', $product->slug) }}"
-           class="block w-full text-center bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
-            Pilih Paket
-        </a>
+        <div class="mt-auto">
+            <a href="{{ route('products.show', $product->slug) }}"
+               class="block w-full text-center bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                Pilih Paket
+            </a>
+        </div>
     </div>
 </div>

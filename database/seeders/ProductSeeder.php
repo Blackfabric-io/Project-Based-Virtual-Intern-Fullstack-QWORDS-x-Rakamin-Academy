@@ -12,81 +12,104 @@ class ProductSeeder extends Seeder
     {
         $products = [
             [
-                'name' => 'Value Cloud Hosting',
-                'slug' => 'value-cloud-hosting',
-                'description' => 'Perfect for personal websites and small businesses',
-                'price' => 14900,
-                'discount_price' => 9900,
+                'name' => 'Cloud Hosting Lite',
+                'slug' => 'cloud-hosting-lite',
+                'description' => 'Lite Starter Package - Perfect for personal websites',
+                'price' => 28000,
+                'discount_price' => 25000,
                 'category' => 'cloud-hosting',
                 'is_featured' => true,
                 'order' => 1,
                 'features' => [
-                    '3GB NVMe Storage',
+                    '5 GB SSD Disk Space',
                     'Unlimited Bandwidth',
                     '0.5 Core CPU',
-                    '1 Domain',
-                    'Free SSL Certificate',
+                    'No Addon Domains',
+                    'No Parked Domains',
                     '24/7 Support'
                 ],
                 'specifications' => [
-                    'storage' => '3GB NVMe',
+                    'disk' => '5 GB',
                     'bandwidth' => 'Unlimited',
                     'cpu' => '0.5 Core',
-                    'ram' => '512MB',
-                    'addon_domains' => 1
+                    'addon_domains' => 0,
+                    'parked_domains' => 0
                 ]
             ],
             [
-                'name' => 'Signature Cloud Hosting',
-                'slug' => 'signature-cloud-hosting',
-                'description' => 'Ideal for growing businesses and e-commerce',
-                'price' => 89900,
-                'discount_price' => 69900,
+                'name' => 'Cloud Hosting WP',
+                'slug' => 'cloud-hosting-wp',
+                'description' => 'WP 1 Package - Optimized for WordPress websites',
+                'price' => 95000,
                 'category' => 'cloud-hosting',
                 'is_featured' => true,
                 'order' => 2,
                 'features' => [
-                    '10GB NVMe Storage',
+                    '20 GB SSD Disk Space',
                     'Unlimited Bandwidth',
                     '1 Core CPU',
-                    '5 Domains',
-                    'Free SSL Certificate',
-                    '24/7 Support',
-                    'Daily Backup'
+                    '3 Addon Domains',
+                    '3 Parked Domains',
+                    'WordPress Optimized',
+                    '24/7 Support'
                 ],
                 'specifications' => [
-                    'storage' => '10GB NVMe',
+                    'disk' => '20 GB',
                     'bandwidth' => 'Unlimited',
                     'cpu' => '1 Core',
-                    'ram' => '1GB',
-                    'addon_domains' => 5
+                    'addon_domains' => 3,
+                    'parked_domains' => 3
                 ]
             ],
             [
-                'name' => 'Enterprise Cloud Hosting',
-                'slug' => 'enterprise-cloud-hosting',
-                'description' => 'Advanced hosting for high-traffic websites',
-                'price' => 129900,
-                'discount_price' => 99900,
+                'name' => 'Cloud Hosting Pro',
+                'slug' => 'cloud-hosting-pro',
+                'description' => 'Pro 1 Package - Advanced hosting for professionals',
+                'price' => 100000,
                 'category' => 'cloud-hosting',
                 'is_featured' => true,
                 'order' => 3,
                 'features' => [
-                    '20GB NVMe Storage',
+                    '20 GB SSD Disk Space',
                     'Unlimited Bandwidth',
-                    '2 Core CPU',
-                    'Unlimited Domains',
-                    'Free SSL Certificate',
-                    '24/7 Priority Support',
-                    'Daily Backup',
-                    'DDoS Protection'
+                    '1 Core CPU',
+                    '3 Addon Domains',
+                    '3 Parked Domains',
+                    'Advanced Features',
+                    '24/7 Priority Support'
                 ],
                 'specifications' => [
-                    'storage' => '20GB NVMe',
+                    'disk' => '20 GB',
                     'bandwidth' => 'Unlimited',
-                    'cpu' => '2 Core',
-                    'ram' => '2GB',
-                    'addon_domains' => -1 // unlimited
+                    'cpu' => '1 Core',
+                    'addon_domains' => 3,
+                    'parked_domains' => 3
+                ]
+            ],
+            [
+                'name' => 'Cloud VPS KVM SSD',
+                'slug' => 'cloud-vps-kvm-ssd',
+                'description' => 'VPS SC1 Package - High-performance virtual private server',
+                'price' => 135000,
+                'discount_price' => 75000,
+                'category' => 'vps',
+                'is_featured' => true,
+                'order' => 4,
+                'features' => [
+                    '25 GB SSD Disk Space',
+                    'Unlimited Bandwidth',
+                    '1 Core CPU',
+                    'Unlimited Domains',
+                    'Full Root Access',
+                    'KVM Resources',
+                    '24/7 Priority Support'
+                ],
+                'specifications' => [
+                    'disk' => '25 GB',
+                    'bandwidth' => 'Unlimited',
+                    'cpu' => '1 Core',
+                    'addon_domains' => -1,
+                    'parked_domains' => -1
                 ]
             ]
         ];
