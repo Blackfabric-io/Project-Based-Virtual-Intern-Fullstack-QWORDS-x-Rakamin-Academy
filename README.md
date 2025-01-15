@@ -1,4 +1,5 @@
-  # QWords Landing Page Redesign (finished)
+  # QWords Landing Page Redesign 
+  (Finished-Maintenance)
 
   ## Overview
   This project involves redesigning the landing page of QWords.com as part of the Virtual Internship Experience (VIX) program. The redesign focuses on creating an attractive and modern interface while maintaining the core functionality and services offered by QWords.
