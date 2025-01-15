@@ -58,9 +58,12 @@
             </div>
         </div>
 
-        <!-- Copyright -->
+        <!-- Copyright with Logo -->
         <div class="border-t border-text-secondary mt-12 pt-8 text-center">
-            <p class="text-micro text-text-tertiary font-light">&copy; {{ date('Y') }} QWords. All rights reserved.</p>
+            <div class="flex justify-center items-center gap-2 mb-2">
+                <img src="{{ asset('images/QWords.png') }}" alt="QWords Logo" class="h-6 w-auto">
+            </div>
+            <p class="text-micro text-text-tertiary font-light">&copy; {{ date('Y') }}. All rights reserved.</p>
         </div>
     </div>
 </footer>

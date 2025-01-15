@@ -4,7 +4,9 @@
         <div class="flex justify-between items-center">
             <!-- Logo Section -->
             <div class="flex items-center">
-                <a href="{{ route('home') }}" class="text-subsection font-extrabold text-brand">QWords</a>
+                <a href="{{ route('home') }}" class="h-12">
+                    <img src="{{ asset('images/QWords.png') }}" alt="QWords Logo" class="h-full w-auto">
+                </a>
             </div>
 
             <!-- Navigation Links - Hidden on Mobile -->

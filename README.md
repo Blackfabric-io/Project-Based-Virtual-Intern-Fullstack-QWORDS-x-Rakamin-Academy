@@ -4,7 +4,7 @@
   This project involves redesigning the landing page of QWords.com as part of the Virtual Internship Experience (VIX) program. The redesign focuses on creating an attractive and modern interface while maintaining the core functionality and services offered by QWords.
 
   ## Technology Stack
-  - **Backend Framework:** Laravel 9.x
+  - **Backend Framework:** Laravel 9
   - **CSS Framework:** Tailwind CSS
   - **JavaScript:** Axios, Vanilla JS
   - **Database:** MySQL
@@ -23,7 +23,7 @@
   - PHP >= 8.0
   - Composer
   - Node.js & NPM
-  - MySQL/MariaDB
+  - MySQL
   - Git
 
   ## Installation Steps
@@ -79,13 +79,12 @@
   - `/database/seeders` - Database seeders for initial data
 
   ## Development Guidelines
-  - Follow PSR-12 coding standards
   - Use meaningful commit messages
   - Document any major changes
   - Test thoroughly before committing
 
   ## License
-  This project is licensed under the [MIT License](LICENSE).
+  This project is licensed under the [MIT License](node_modules/ms/license.md).
 
   ## Acknowledgments
   - QWords.com for the opportunity
